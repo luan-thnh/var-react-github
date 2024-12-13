@@ -5,11 +5,9 @@ import { ROUTES } from '../libs/constants';
 
 const AppRouter = () => {
   return (
-    <Router>
+    <Router basename="/var-react-github/">
       <Routes>
-        <Route path={ROUTES.HOME}>
-          <Route path={ROUTES.HOME} element={<HomePage />} />
-        </Route>
+        <Route path={ROUTES.HOME} element={<HomePage />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
