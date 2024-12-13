@@ -5,7 +5,7 @@ import { ROUTES } from '../libs/constants';
 
 const AppRouter = () => {
   return (
-    <Router basename="/var-react-github/">
+    <Router basename={process.env.NODE_ENV === 'production' ? '/var-react-github/' : '/'}>
       <Routes>
         <Route path={ROUTES.HOME} element={<HomePage />} />
 
