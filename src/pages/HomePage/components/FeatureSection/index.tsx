@@ -2,7 +2,7 @@ import { HStack } from "@/components/utils/h-stack";
 import { body, container, heading } from "@/components/utils/primitives";
 import { VStack } from "@/components/utils/v-stack";
 import CheckIcon from "./icons/CheckIcon";
-import macbookPro from "/images/home/macbook_pro.png";
+import macbookPro from "/images/home/macbook_pro.webp";
 
 const DATA = [
   {

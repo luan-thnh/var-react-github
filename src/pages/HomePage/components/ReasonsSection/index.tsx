@@ -1,27 +1,31 @@
 import { body, container, heading } from "@/components/utils/primitives";
 import { VStack } from "@/components/utils/v-stack";
+import limited_coverage from "/images/home/limited_coverage.svg";
+import lengthy_claims_process from "/images/home/lengthy_claims_process.svg";
+import high_costs from "/images/home/high_costs.svg";
+import lack_of_transparency from "/images/home/lack_of_transparency.svg";
 
 const DATA = [
   {
-    icon: "/images/home/limited_coverage.svg",
+    icon: limited_coverage,
     title: "Limited Coverage",
     description:
       "Especially in developing regions, many at-risk communities lack access to affordable insurance, due to overhead present in conventional insurance.",
   },
   {
-    icon: "/images/home/lengthy_claims_process.svg",
+    icon: lengthy_claims_process,
     title: "Lengthy Claims Process",
     description:
       "Where present, traditional claims take weeks or months to resolve.",
   },
   {
-    icon: "/images/home/high_costs.svg",
+    icon: high_costs,
     title: "High Costs",
     description:
       "Administrative overhead and intermediaries make premiums unaffordable for many in need.",
   },
   {
-    icon: "/images/home/lack_of_transparency.svg",
+    icon: lack_of_transparency,
     title: "Lack of Transparency",
     description:
       "Policyholders face unclear terms, nondeterministic pricing structures and slow payouts.",
