@@ -3,6 +3,8 @@ import { HStack } from "@/components/utils/h-stack";
 import { body, container } from "@/components/utils/primitives";
 import { ROUTES } from "@/libs/constants";
 import { Link } from "react-router-dom";
+import logo from "/images/logo.svg";
+import xIcon from "/images/home/x_dark_icon.svg";
 
 interface Link {
   label: string;
@@ -37,7 +39,7 @@ const Header = () => {
       })}
     >
       <a href={ROUTES.HOME}>
-        <img src="/images/logo.svg" alt="logo" width={108} height={25.561} />
+        <img src={logo} alt="logo" width={108} height={25.561} />
       </a>
 
       <HStack spacing={40} className="hidden lg:flex">
@@ -57,7 +59,7 @@ const Header = () => {
         <HStack>
           <Button variant="bordered">LAUNCH APP</Button>
           <Button variant="bordered" iconOnly as={Link} to="x.com">
-            <img src="/images/home/x_dark_icon.svg" alt="x" />
+            <img src={xIcon} alt="x" />
           </Button>
         </HStack>
       </HStack>

@@ -1,12 +1,13 @@
 import Button from "@/components/ui/Button";
 import { body, container, heading } from "@/components/utils/primitives";
+import bgPilot from "/images/home/bg_pilot.png";
 
 const PilotProgramSection = () => {
   return (
     <section className="bg-[#F6F8F7] py-[114px]">
       <div className={container()}>
         <div className="w-full max-w-[940px] mx-auto relative ">
-          <img src="/images/home/bg_pilot.png" className="rounded-lg" />
+          <img src={bgPilot} className="rounded-lg" />
           <div className="xl:absolute pt-12 px-10 pb-[60px] mx-auto xl:mx-0 relative top-[-113px] w-[90%] xl:bottom-auto xl:right-[-113px] xl:top-1/2 xl:-translate-y-1/2 xl:w-full xl:max-w-[448px] rounded-lg border border-[#E0E3EB] bg-white shadow-[0px_20px_24px_-4px_rgba(17,_24,_39,_0.10),_0px_8px_8px_-4px_rgba(17,_24,_39,_0.04)]">
             <h2
               className={heading({
