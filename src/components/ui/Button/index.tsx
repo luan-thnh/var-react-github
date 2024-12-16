@@ -1,13 +1,7 @@
 "use client";
 
 import { Spinner, forwardRef } from "@nextui-org/react";
-import {
-  type HTMLMotionProps,
-  animate,
-  motion,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { type VariantProps, tv } from "tailwind-variants";
 
