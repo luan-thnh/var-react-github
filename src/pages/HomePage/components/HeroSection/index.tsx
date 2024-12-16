@@ -1,12 +1,10 @@
+import Button from "@/components/ui/Button";
+import Tag from "@/components/ui/Tag";
+import { HStack } from "@/components/utils/h-stack";
+import { body, container, heading } from "@/components/utils/primitives";
 import { Input } from "@nextui-org/react";
-import Button from "../../../../components/ui/Button";
-import Tag from "../../../../components/ui/Tag";
-import { HStack } from "../../../../components/utils/h-stack";
-import {
-  body,
-  container,
-  heading,
-} from "../../../../components/utils/primitives";
+import arrowRightIcon from "/images/home/arrow-right.svg";
+import famImg from "/images/home/fam_img.png";
 
 const HeroSection = () => {
   return (
@@ -35,11 +33,7 @@ const HeroSection = () => {
               className="text-white w-full lg:w-fit"
               size="lg"
               endIcon={
-                <img
-                  src="/images/home/arrow-right.svg"
-                  alt="arrow"
-                  className="ml-3"
-                />
+                <img src={arrowRightIcon} alt="arrow" className="ml-3" />
               }
             >
               Get in touch
@@ -57,7 +51,7 @@ const HeroSection = () => {
         </div>
       </div>
       <img
-        src="/images/home/fam_img.png"
+        src={famImg}
         width={529}
         height={529}
         alt="hero"

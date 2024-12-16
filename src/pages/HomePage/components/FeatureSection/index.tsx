@@ -2,6 +2,7 @@ import { HStack } from "@/components/utils/h-stack";
 import { body, container, heading } from "@/components/utils/primitives";
 import { VStack } from "@/components/utils/v-stack";
 import CheckIcon from "./icons/CheckIcon";
+import macbookPro from "/images/home/macbook_pro.png";
 
 const DATA = [
   {
@@ -77,7 +78,7 @@ const FeatureSection = () => {
         </VStack>
         <div className="overflow-hidden flex-1 lg:absolute lg:right-0 px-10">
           <img
-            src="/images/home/macbook_pro.webp"
+            src={macbookPro}
             alt="feature"
             className="lg:translate-x-1/3 w-[600px] 2xl:w-[1200px] "
           />

@@ -1,5 +1,6 @@
 import { HStack } from "@/components/utils/h-stack";
 import { cn } from "@/libs/utils";
+import logoPokadot from "/images/home/logo_polkadot.svg";
 
 interface Props {
   theme?: "dark" | "gradient";
@@ -19,7 +20,7 @@ const Tag = ({ theme = "dark" }: Props) => {
       )}
     >
       <p>Secured by</p>
-      <img src="/images/home/logo_polkadot.svg" width={59} height={13} />
+      <img src={logoPokadot} width={59} height={13} />
     </HStack>
   );
 };
