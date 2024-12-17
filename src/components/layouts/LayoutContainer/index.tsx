@@ -12,7 +12,7 @@ const LayoutContainer = ({ component, isHeader, isFooter }: Props) => {
   return (
     <>
       {isHeader && <Header />}
-      <main className="-mt-navbar">{component}</main>
+      <main className="-mt-navbar-mobile lg:-mt-navbar">{component}</main>
       {isFooter && <Footer />}
     </>
   );

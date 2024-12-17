@@ -20,6 +20,7 @@ export default {
       },
       spacing: {
         navbar: "102px",
+        "navbar-mobile": "80px",
       },
       backgroundImage: {
         "gradient-primary":
