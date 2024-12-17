@@ -93,7 +93,7 @@ const NAVBAR_LINKS: Link[] = [
 ];
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { scrollY } = useScroll();
   const [isScrollDown, setIsScrollDown] = useState(false);
