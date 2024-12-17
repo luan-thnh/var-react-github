@@ -29,7 +29,7 @@ const DATA = [
 
 const FeatureSection = () => {
   return (
-    <section className="bg-[#F6F8F7] pt-[80px] pb-[100px]">
+    <section className="bg-[#F6F8F7] pt-[80px] pb-[100px] overflow-hidden">
       <HStack
         noWrap
         className={container({
@@ -76,7 +76,7 @@ const FeatureSection = () => {
             ))}
           </div>
         </VStack>
-        <div className="overflow-hidden flex-1 lg:absolute lg:right-0 px-10">
+        <div className="flex-1 lg:absolute lg:right-0 px-10">
           <img
             src={macbookPro}
             alt="feature"

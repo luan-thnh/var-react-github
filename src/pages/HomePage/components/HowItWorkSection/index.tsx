@@ -108,7 +108,7 @@ const HowItWorkSection = () => {
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[#EBEAED] hidden lg:block"
         ></div>
         <div
-          style={{ height: lastItemHeight }}
+          style={{ height: lastItemHeight - 20 }}
           className="absolute md:left-8 left-8 bottom-0 overflow-hidden w-[2px] bg-white hidden lg:block"
         ></div>
       </div>

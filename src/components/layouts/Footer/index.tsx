@@ -60,9 +60,13 @@ const Footer = () => {
           </p>
           <HStack spacing={8}>
             <Tag theme="gradient" />
-            <button className="bg-primary-dark w-[28px] h-[28px] flex justify-center items-center rounded-full">
+            <Link
+              to="https://x.com/PRMX_2024"
+              target="_blank"
+              className="bg-primary-dark w-[28px] h-[28px] flex justify-center items-center rounded-full"
+            >
               <img src={xIcon} />
-            </button>
+            </Link>
           </HStack>
         </HStack>
       </div>
