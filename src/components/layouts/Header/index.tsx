@@ -1,7 +1,6 @@
 import Button from "@/components/ui/Button";
 import { HStack } from "@/components/utils/h-stack";
 import { body, container } from "@/components/utils/primitives";
-import { ROUTES } from "@/libs/constants";
 import { Link } from "react-router-dom";
 import logo from "/images/logo.svg";
 import logoDark from "/images/logo_dark.svg";
@@ -144,7 +143,7 @@ const Header = () => {
           ),
         })}
       >
-        <a href={ROUTES.HOME}>
+        <a href="#">
           {isScrollDown ? (
             <img src={logoDark} alt="logo" width={108} height={25.561} />
           ) : (

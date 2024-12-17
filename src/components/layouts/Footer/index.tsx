@@ -1,7 +1,6 @@
 import Tag from "@/components/ui/Tag";
 import { HStack } from "@/components/utils/h-stack";
 import { body, container } from "@/components/utils/primitives";
-import { ROUTES } from "@/libs/constants";
 import { Link } from "react-router-dom";
 import logoDark from "/images/logo_dark.svg";
 import xIcon from "/images/home/x_icon.svg";
@@ -38,9 +37,9 @@ const Footer = () => {
           justify="between"
           className="flex-col lg:flex-row py-10 border-b border-[#EBEAED] gap-8"
         >
-          <Link to={ROUTES.HOME}>
+          <a href="#">
             <img src={logoDark} alt="logo_dark" />
-          </Link>
+          </a>
 
           <ul className="flex gap-10 flex-wrap justify-center">
             {LINKS?.map(({ label, href }) => (
