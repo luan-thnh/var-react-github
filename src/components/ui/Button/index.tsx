@@ -13,14 +13,14 @@ const buttonVariant = tv(
         bordered:
           'px-4 py-3 text-primary relative rounded z-0 overflow-hidden bg-gradient-primary before:content-[""] before:absolute before:block before:inset-0 before:rounded-inherit before:m-[1px] before:bg-white before:z-[-2] font-bold',
         solid:
-          'px-4 py-3 text-primary relative rounded z-0 overflow-hidden bg-gradient-primary before:content-[""] before:absolute before:block before:inset-0 before:rounded-inherit before:m-[1px] before:bg-gradient-primary before:z-[-2] font-bold',
+          'px-4 py-3 text-white relative rounded z-0 overflow-hidden bg-gradient-primary before:content-[""] before:absolute before:block before:inset-0 before:rounded-inherit before:m-[1px] before:bg-gradient-primary before:z-[-2] font-bold',
       },
       size: {
         none: "gap-xs text-sm",
         xs: "gap-xs p-2 h-8 text-sm rounded",
         sm: "gap-xs p-2 h-9 text-sm rounded",
         md: "gap-sm h-[38px] px-4 py-3 text-sm rounded",
-        lg: "gap-sm h-[52px] px-5 py-[18px] text-base rounded",
+        lg: "gap-sm h-12 lg:h-[52px] px-4 py-3 lg:px-5 lg:py-[18px] text-base rounded",
       },
       fullWidth: {
         true: "w-full",

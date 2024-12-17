@@ -8,17 +8,20 @@ import famImg from "/images/home/fam_img.png";
 
 const HeroSection = () => {
   return (
-    <section className="h-screen bg-[url('/images/home/bg_hero.png')] overflow-hidden relative bg-no-repeat bg-center bg-cover w-full pt-navbar flex items-center">
+    <section className="h-[700px] lg:min-h-[800px] lg:h-screen bg-[url('/images/home/bg_hero.png')] overflow-hidden relative bg-no-repeat bg-center bg-cover w-full pt-navbar flex items-center">
       <div
-        className={container({ className: "px-4 md:px-[80px] lg:px-[160px]" })}
+        className={container({
+          className:
+            "relative px-4 md:px-[80px] lg:px-[160px] h-full flex flex-col justify-center items-start",
+        })}
       >
-        <Tag />
-        <div className="mt-6 max-w-[886px] w-full relative z-10">
+        <div className="max-w-[886px] w-full relative z-10">
+          <Tag />
           <h1
             className={heading({
               variant: 48,
               weight: 700,
-              className: "text-white",
+              className: "text-white mt-6",
             })}
           >
             Bridging the Gap: <br /> Insurance for Those Left Behind
@@ -42,21 +45,24 @@ const HeroSection = () => {
               placeholder="Enter your email address"
               className="w-full lg:max-w-[378px]"
               classNames={{
-                inputWrapper: "h-[52px] rounded font-manrope py-[18px] px-6",
+                inputWrapper:
+                  "h-12 lg:h-[52px] rounded font-manrope py-[18px] px-6",
                 input: "placeholder:text-[#98A2B3]",
               }}
               radius="none"
             />
           </HStack>
         </div>
+        <img
+          src={famImg}
+          width={529}
+          height={529}
+          alt="hero"
+          className="absolute right-0 bottom-0"
+        />
       </div>
-      <img
-        src={famImg}
-        width={529}
-        height={529}
-        alt="hero"
-        className="absolute right-0 bottom-0"
-      />
+
+      <div className="absolute top-0 left-0 w-full h-full bg-black/20 block md:hidden"></div>
     </section>
   );
 };
