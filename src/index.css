@@ -20,4 +20,5 @@
 
 html {
   @apply font-garet;
+  scroll-behavior: smooth;
 }

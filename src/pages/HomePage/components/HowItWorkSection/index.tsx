@@ -53,6 +53,7 @@ const HowItWorkSection = () => {
 
   return (
     <section
+      id="faq"
       className={container({ className: "relative pt-[88px] pb-[65px] mt-5" })}
     >
       <h2

@@ -4,7 +4,7 @@ import bgPilot from "/images/home/bg_pilot.png";
 
 const PilotProgramSection = () => {
   return (
-    <section className="bg-[#F6F8F7] pt-12 lg:py-[114px]">
+    <section id="program" className="bg-[#F6F8F7] pt-12 lg:py-[114px]">
       <div className={container()}>
         <div className="w-full max-w-[940px] mx-auto relative ">
           <img src={bgPilot} className="rounded-lg" />

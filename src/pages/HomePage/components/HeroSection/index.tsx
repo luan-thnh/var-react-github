@@ -8,7 +8,7 @@ import famImg from "/images/home/fam_img.png";
 
 const HeroSection = () => {
   return (
-    <section className="h-[700px] lg:min-h-[800px] lg:h-screen bg-[url('/images/home/bg_hero.png')] overflow-hidden relative bg-no-repeat bg-center bg-cover w-full pt-navbar flex items-center">
+    <section className="h-[700px] lg:min-h-[800px] lg:h-screen bg-[url('/images/home/bg_hero.png')] overflow-hidden relative bg-no-repeat bg-center bg-cover w-full pt-navbar-mobile lg:pt-navbar flex items-center">
       <div
         className={container({
           className:

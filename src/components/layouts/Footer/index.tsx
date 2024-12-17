@@ -48,7 +48,7 @@ const Footer = () => {
                 key={label}
                 className={body({ variant: 16, className: "text-primary" })}
               >
-                <Link to={href}>{label}</Link>
+                <a href={href}>{label}</a>
               </li>
             ))}
           </ul>

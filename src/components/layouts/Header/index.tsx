@@ -4,12 +4,15 @@ import { body, container } from "@/components/utils/primitives";
 import { ROUTES } from "@/libs/constants";
 import { Link } from "react-router-dom";
 import logo from "/images/logo.svg";
-import xIcon from "/images/home/x_dark_icon.svg";
+import logoDark from "/images/logo_dark.svg";
+import xDarkIcon from "/images/home/x_dark_icon.svg";
+import xIcon from "/images/home/x_icon.svg";
 import MenuIcons from "./icons/MenuIcons";
 import { useState } from "react";
 import Tag from "@/components/ui/Tag";
 import CloseIcon from "./icons/CloseIcon";
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { cn } from "@/libs/utils";
 
 const mobileMenuVariant = {
   open: {
@@ -92,105 +95,159 @@ const NAVBAR_LINKS: Link[] = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [isScrollDown, setIsScrollDown] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > 104) {
+      setIsScrollDown(true);
+    } else {
+      setIsScrollDown(false);
+    }
+
+    if (latest > previous) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  });
+
+  const handleOpen = () => {
+    setIsDropdownOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleClose = () => {
+    setIsDropdownOpen(false);
+    document.body.style.overflow = "visible";
+  };
 
   return (
-    <div
-      className={container({
-        className:
-          "h-navbar flex items-center justify-between relative z-[99999]",
-      })}
+    <motion.div
+      animate={isOpen ? "visible" : "hidden"}
+      initial="visible"
+      variants={{ isOpen: { y: 0 }, hidden: { y: "-100%" } }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className={cn(
+        "sticky top-0 z-[99999]",
+        isScrollDown
+          ? "bg-white border-b border-primary/20"
+          : "bg-transparent border-none"
+      )}
     >
-      <a href={ROUTES.HOME}>
-        <img src={logo} alt="logo" width={108} height={25.561} />
-      </a>
-
-      <HStack spacing={40} className="hidden lg:flex">
-        <HStack spacing={40}>
-          {NAVBAR_LINKS?.map(({ label, href }) => (
-            <Link
-              key={label}
-              to={href}
-              className={body({
-                variant: 18,
-                className:
-                  "font-manrope text-white transition-all hover:opacity-60",
-              })}
-            >
-              {label}
-            </Link>
-          ))}
-        </HStack>
-        <HStack>
-          <Button variant="bordered">LAUNCH APP</Button>
-          <a href="https://x.com/PRMX_2024" target="_blank">
-            <Button variant="bordered" iconOnly>
-              <img src={xIcon} alt="x" />
-            </Button>
-          </a>
-        </HStack>
-      </HStack>
-
-      <Button
-        iconOnly
-        variant="bordered"
-        className="rounded flex lg:hidden"
-        onClick={() => setIsOpen(!isOpen)}
+      <div
+        className={container({
+          className: cn(
+            "h-navbar-mobile lg:h-navbar flex items-center justify-between relative"
+          ),
+        })}
       >
-        <MenuIcons />
-      </Button>
+        <a href={ROUTES.HOME}>
+          {isScrollDown ? (
+            <img src={logoDark} alt="logo" width={108} height={25.561} />
+          ) : (
+            <img src={logo} alt="logo" width={108} height={25.561} />
+          )}
+        </a>
 
-      <motion.div
-        initial="close"
-        animate={isOpen ? "open" : "close"}
-        exit="close"
-        variants={mobileMenuVariant}
-        className="fixed inset-0 bg-white flex-col py-10 flex lg:hidden"
-      >
-        <motion.div variants={ulVariant} className="flex flex-col h-full">
-          <HStack
-            justify="between"
-            className="px-6 pb-6 border-b border-primary/40"
-          >
-            <Button>LAUNCH APP</Button>
-            <Button
-              iconOnly
-              variant="bordered"
-              className="rounded"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <CloseIcon />
-            </Button>
-          </HStack>
-          <motion.ul className="flex flex-col justify-center items-center gap-6 flex-1">
-            {NAVBAR_LINKS?.map(({ href, label }) => (
-              <motion.li key={label} variants={liVariant}>
-                <a
-                  href={href}
-                  className="text-primary font-manrope text-xl font-bold"
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  {label}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
-
-          <motion.div
-            variants={liVariant}
-            className="mt-10 font-manrope text-base font-bold flex justify-center"
-          >
-            <HStack>
-              <Tag theme="gradient" />
-              <a href="https://x.com/PRMX_2024" target="_blank">
-                <Button variant="bordered" iconOnly>
-                  <img src={xIcon} alt="x" />
-                </Button>
+        <HStack spacing={40} className="hidden lg:flex">
+          <HStack spacing={40}>
+            {NAVBAR_LINKS?.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className={body({
+                  variant: 18,
+                  className: cn(
+                    "font-manrope text-white transition-all hover:opacity-60",
+                    isScrollDown ? "text-primary" : "text-white"
+                  ),
+                })}
+              >
+                {label}
               </a>
+            ))}
+          </HStack>
+          <HStack>
+            <Button variant={isScrollDown ? "solid" : "bordered"}>
+              LAUNCH APP
+            </Button>
+            <a href="https://x.com/PRMX_2024" target="_blank">
+              <Button variant={isScrollDown ? "solid" : "bordered"} iconOnly>
+                {isScrollDown ? (
+                  <img src={xIcon} alt="x" />
+                ) : (
+                  <img src={xDarkIcon} alt="x" />
+                )}
+              </Button>
+            </a>
+          </HStack>
+        </HStack>
+
+        <Button
+          iconOnly
+          variant="bordered"
+          className="rounded flex lg:hidden"
+          onClick={handleOpen}
+        >
+          <MenuIcons />
+        </Button>
+
+        <motion.div
+          initial="close"
+          animate={isDropdownOpen ? "open" : "close"}
+          exit="close"
+          variants={mobileMenuVariant}
+          className="fixed inset-0 bg-white flex-col py-10 flex lg:hidden min-h-[600px] overflow-auto"
+        >
+          <motion.div variants={ulVariant} className="flex flex-col h-full">
+            <HStack
+              justify="between"
+              className="px-6 pb-6 border-b border-primary/40"
+            >
+              <Button>LAUNCH APP</Button>
+              <Button
+                iconOnly
+                variant="bordered"
+                className="rounded"
+                onClick={handleClose}
+              >
+                <CloseIcon />
+              </Button>
             </HStack>
+            <motion.ul className="flex flex-col justify-center items-center gap-6 flex-1">
+              {NAVBAR_LINKS?.map(({ href, label }) => (
+                <motion.li key={label} variants={liVariant}>
+                  <a
+                    href={href}
+                    className="text-primary font-manrope text-xl font-bold"
+                    onClick={handleClose}
+                  >
+                    {label}
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+
+            <motion.div
+              variants={liVariant}
+              className="mt-10 font-manrope text-base font-bold flex justify-center"
+            >
+              <HStack>
+                <Tag theme="gradient" />
+                <a href="https://x.com/PRMX_2024" target="_blank">
+                  <Button variant="bordered" iconOnly>
+                    <img src={xDarkIcon} alt="x" />
+                  </Button>
+                </a>
+              </HStack>
+            </motion.div>
           </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 
