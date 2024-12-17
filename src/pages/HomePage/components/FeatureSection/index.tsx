@@ -76,11 +76,11 @@ const FeatureSection = () => {
             ))}
           </div>
         </VStack>
-        <div className="flex-1 lg:absolute lg:right-0 px-10">
+        <div className="flex-1 lg:absolute lg:right-0 px-10 mt-6">
           <img
             src={macbookPro}
             alt="feature"
-            className="lg:translate-x-1/3 w-[600px] 2xl:w-[1200px] "
+            className="lg:translate-x-1/3 w-[70vw] 2xl:w-[1200px] "
           />
         </div>
       </HStack>

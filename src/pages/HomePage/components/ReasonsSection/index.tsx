@@ -48,7 +48,7 @@ const ReasonsSection = () => {
         Conventional insurance fails when it’s needed most
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-[60px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 mt-[60px]">
         {DATA.map(({ icon, title, description }) => (
           <VStack
             spacing={18}
